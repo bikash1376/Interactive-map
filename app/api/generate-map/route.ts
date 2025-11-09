@@ -1,4 +1,3 @@
-// app/api/generate-map/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 
