@@ -1,4 +1,4 @@
-# Learn Map - Interactive Learning Path Generator
+# Interactive Map - Interactive Learning Path Generator with Links to resources
 
 An interactive learning map that generates visual learning paths for any topic using AI. Built with Next.js, React Flow, and Google's Gemini AI.
 
@@ -7,17 +7,17 @@ Learn Map Screenshot
 
 ## Features
 
-- 🎯 Generate interactive learning paths for any topic
-- 🧠 AI-powered content generation using Google Gemini
-- 🎨 Beautiful, responsive UI with dark/light mode
-- 🔍 Zoom and pan functionality for exploring complex maps
-- 📱 Mobile-friendly design with touch support
-- 🔄 Expandable nodes to dive deeper into subtopics
+- Generate interactive learning paths for any topic
+- AI-powered content generation using Google Gemini
+- Beautiful, responsive UI with dark/light mode (Controls component from ReactFlow theme issue)
+- Zoom and pan functionality for exploring complex maps
+- Mobile-friendly design with touch support
+- Expandable nodes to dive deeper into subtopics (beta)
 
 ## Tech Stack
 
 - **Frontend**: Next.js, React, TypeScript
-- **UI**: Tailwind CSS, Shadcn UI
+- **UI**: Tailwind CSS, Shadcn UI (Lucide-react for icons)
 - **Visualization**: React Flow
 - **AI**: Google Gemini API
 - **Layout**: Dagre for automatic graph layout
@@ -26,7 +26,7 @@ Learn Map Screenshot
 
 ### Prerequisites
 
-- Node.js 18+ and npm/yarn
+- Node.js 18+ and pnpm/yarn
 - Google Gemini API key
 
 ### Installation
