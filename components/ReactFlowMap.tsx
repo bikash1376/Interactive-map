@@ -375,8 +375,11 @@ export default function ReactFlowMap() {
             nodes={nodes}
             edges={edges}
             nodesDraggable={true}
-            panOnDrag={[1, 2]}
-            zoomOnScroll={false}
+            panOnScroll={true}
+            panOnDrag={true}
+            zoomOnPinch={true}
+            zoomOnScroll={true}
+            zoomOnDoubleClick={true}
             defaultEdgeOptions={{ type: "bezier", style: { strokeWidth: 2 } }}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
@@ -384,7 +387,7 @@ export default function ReactFlowMap() {
             fitView
             className="bg-muted/20"
           >
-            <Controls />
+            <Controls/>
             <Background gap={12} size={1} />
           </ReactFlow>
         ) : (
