@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  return NextResponse.json({message: "Welcome to the club"});
+  return NextResponse.json({message: "Welcome to Interactive Learning Map"});
 }
