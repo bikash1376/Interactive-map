@@ -22,6 +22,7 @@ import {
   type NodeTypes,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import { ModeToggle } from "./ModeToggle";
 
 interface Resource {
   title: string;
@@ -54,10 +55,10 @@ const MapNode = ({ data }: NodeProps<Node<MapNodeData>>) => {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case "Beginner": return "bg-green-100 text-green-800 border-green-300";
-      case "Intermediate": return "bg-yellow-100 text-yellow-800 border-yellow-300";
-      case "Advanced": return "bg-red-100 text-red-800 border-red-300";
-      default: return "bg-gray-100 text-gray-800 border-gray-300";
+      case "Beginner": return "bg-green-100 text-green-800 border-green-300 dark:bg-green-900/30 dark:text-green-300 dark:border-green-700";
+      case "Intermediate": return "bg-yellow-100 text-yellow-800 border-yellow-300 dark:bg-yellow-900/30 dark:text-yellow-300 dark:border-yellow-700";
+      case "Advanced": return "bg-red-100 text-red-800 border-red-300 dark:bg-red-900/30 dark:text-red-300 dark:border-red-700";
+      default: return "bg-gray-100 text-gray-800 border-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600";
     }
   };
 
@@ -75,7 +76,7 @@ const MapNode = ({ data }: NodeProps<Node<MapNodeData>>) => {
       <Handle type="target" position={Position.Top} className="w-2 h-2" />
       <div
         onClick={() => setOpen(true)}
-        className="cursor-pointer rounded-lg border-2 bg-white p-3 shadow-sm hover:shadow-md transition-shadow min-w-48"
+        className="cursor-pointer rounded-lg border-2 bg-card text-card-foreground p-3 shadow-sm hover:shadow-md transition-shadow min-w-48"
       >
         <div className="flex items-center justify-between mb-1">
           <h4 className="font-semibold text-sm truncate pr-2">{data.label}</h4>
@@ -90,14 +91,14 @@ const MapNode = ({ data }: NodeProps<Node<MapNodeData>>) => {
             e.stopPropagation();
             data.onExpand?.(data);
           }}
-          className="absolute -right-3 -top-3 bg-primary text-white rounded-full p-1 shadow hover:scale-105 transition-transform"
+          className="absolute -right-3 -top-3 bg-primary text-primary-foreground rounded-full p-1 shadow hover:scale-105 transition-transform"
         >
           {data.expanding ? <Loader2 className="h-3 w-3 animate-spin" /> : <Plus className="h-3 w-3" />}
         </button>
         {data.resources.length > 0 && (
           <div className="flex gap-1 mt-2 flex-wrap">
             {data.resources.slice(0, 2).map((r: Resource, i: number) => (
-              <div key={i} className="flex items-center gap-1 text-xs text-blue-600">
+              <div key={i} className="flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400">
                 {getIcon(r.type)}
                 <span className="truncate max-w-20">{r.title}</span>
               </div>
@@ -136,7 +137,7 @@ const MapNode = ({ data }: NodeProps<Node<MapNodeData>>) => {
                       href={res.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline text-xs flex items-center gap-1"
+                      className="text-blue-600 dark:text-blue-400 hover:underline text-xs flex items-center gap-1"
                     >
                       Open <ExternalLink className="w-3 h-3" />
                     </a>
@@ -326,6 +327,7 @@ export default function ReactFlowMap() {
       {/* Header */}
       <header className="border-b bg-background p-4">
         <div className="max-w-4xl mx-auto flex gap-3 items-center">
+            
           <Input
             placeholder="e.g. Web Development, Quantum Physics..."
             value={topic}
@@ -335,6 +337,7 @@ export default function ReactFlowMap() {
             className="flex-1"
           />
           <Button onClick={generateMap} disabled={loading}>
+            
             {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -344,6 +347,7 @@ export default function ReactFlowMap() {
               "Generate Map"
             )}
           </Button>
+          <ModeToggle />
         </div>
       </header>
 
